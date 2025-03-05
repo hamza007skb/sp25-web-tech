@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        margin: 0px;
+        padding: 0px;
+        font-family: Helvetica, sans-serif;
+    }
+
+    #header {
+        margin-block: 2%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-inline: 10%;
+    }
+
+    #menu {
+        display: flex;
+        justify-content: space-between;
+        margin: 0;
+        padding: 0;
+    }
+
+    #menu li {
+        font-family: Helvetica, sans-serif;
+        padding-block: 7%;
+        padding-inline: 4%;
+        font-size: 110%;
+        font-weight: 120;
+        color: white;
+        margin-inline: 4%;
+        display: flex;
+        justify-content: space-between;
+        white-space: nowrap;
+    }
+
+    #navbar {
+        background-color: #505050;
+        display: flex;
+        justify-content: space-between;
+        padding-inline: 10%;
+    }
+
+
+    .header_icon {
+        padding: 5%;
+        max-height: 20px;
+        max-width: 100%;
+    }
+
+    .header_containers {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header_containers:hover .header_txt {
+        text-decoration: underline;
+    }
+
+    .header_containers:hover .header_icon {
+        background-color: gainsboro;
+        border-radius: 50%;
+    }
+
+
+    .header_containers p {
+        text-align: justify;
+        font-size: small;
+        font-family: Helvetica, sans-serif;
+        margin-top: 2px;
+        margin-bottom: 0;
+        margin-inline: 7px;
+        white-space: nowrap;
+        opacity: 60%;
+    }
+
+    .header_txt {
+        text-align: justify;
+        font-size: small;
+        font-family: Helvetica, sans-serif;
+        margin-top: 3px;
+        margin-bottom: 0;
+        margin-inline: 7px;
+    }
+
+    h1 {
+        margin: 0px;
+    }
+
+    .heading {
+        padding-top: 3%;
+        max-height: 40px;
+    }
+
+
+    .menu-second {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+    }
+
+    .search-container {
+        background-color: black;
+        border-radius: 10px;
+        padding: 5px 10px;
+        display: flex;
+        align-items: center;
+        width: 200px;
+    }
+
+
+    .search {
+        background-color: black;
+        border-radius: 5px;
+    }
+
+
+    .search-input {
+        flex: 1;
+        background: none;
+        border: none;
+        outline: none;
+        color: white;
+        font-size: 16px;
+        padding: 5px;
+    }
+
+    .search-input::placeholder {
+        color: rgba(255, 255, 255, 0.6);
+    }
+
+    .search-icon {
+        width: 10%;
+        height: 10%;
+        cursor: pointer;
+    }
+
+    .heart {
+        max-width: 40px;
+        padding-left: 15%;
+    }
+
+    .footer-signup {
+        display: flex;
+        justify-content: center;
+        gap: 2%;
+        padding-bottom: 3%;
+    }
+
+    .footer {
+        background-color: #eeeded;
+        font-family: Helvetica, sans-serif;
+        padding-block: 3%;
+        margin-bottom: 5%;
+    }
+
+    .footer-heading {
+        font-weight: 500;
+        display: flex;
+        justify-content: center;
+    }
+
+    .signup_btn {
+        background-color: black;
+        color: white;
+        border-radius: 4px;
+        text-align: center;
+        width: 120px;
+        height: 30px;
+    }
+
+    .footer-input {
+        padding: 3%;
+        width: 300px;
+        border: hsl(0, 0%, 42%);
+    }
+
+    .footer-2nd {
+        display: flex;
+        font-size: smaller;
+    }
+
+    .footer-2nd ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .footer-2nd li {
+        color: #6a6a6a;
+        font-weight: 100;
+        padding-block: 3.5%;
+
+    }
+
+    .sec-1 {
+        padding-inline: 5%;
+        white-space: nowrap;
+        margin-left: 5%;
+        padding-top: 3%;
+    }
+
+    .social-icons {
+        display: flex;
+    }
+
+    .social-icons img {
+        width: 20px;
+        padding: 5%;
+    }
+
+    .sec-2 {
+        padding-top: 3%;
+        padding-inline: 10%;
+    }
+
+    .sec-2 h2 {
+        font-weight: 500;
+        font-size: x-large;
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+
+    .sec-2 p {
+        color: #6a6a6a;
+        font-weight: 100;
+        white-space: nowrap;
+        margin-top: 0;
+        padding-top: 0;
+    }
+
+    .footer-3 {
+        background-color: #f2f2f2;
+        text-align: center;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        color: #666;
+    }
+
+    .footer-top {
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+
+    .payment-icons {
+        margin-bottom: 15px;
+    }
+
+    .payment-icons img {
+        width: 50px;
+        margin: 0 5px;
+    }
+
+    .footer-text {
+        max-width: 800px;
+        margin: 0 auto 15px;
+    }
+
+    .footer-text a {
+        color: #666;
+        text-decoration: underline;
+    }
+
+    .divider {
+        border: none;
+        height: 1px;
+        background-color: #ccc;
+        margin: 15px auto;
+        width: 80%;
+    }
+
+    .footer-bottom {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .footer-bottom a {
+        color: #666;
+        text-decoration: none;
+        margin: 0 5px;
+    }
+
+    .footer-bottom a:hover {
+        text-decoration: underline;
+    }
+
+    .running-banner {
+        background-color: #ff0000;
+        color: white;
+        font-size: 16px;
+        text-align: center;
+        top: 60px;
+        width: 100%;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+    }
+
+    .running-banner p {
+        display: inline-block;
+        white-space: nowrap;
+        animation: banner-scroll 10s linear infinite;
+    }
+
+    @keyframes banner-scroll {
+        0% {
+            transform: translateX(100%);
+        }
+
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+    .shop {
+        display: flex;
+        justify-content: center;
+        background-color: #ff0000;
+        margin: 0;
+        padding: 0;
+    }
+
+    .shop-cat {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+        color: rgb(243, 243, 243);
+        text-align: center;
+        text-decoration: underline;
+    }
+
+    .shop-2-container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        padding: 20px;
+    }
+
+    .shop-2-item {
+        width: 15%;
+        border-radius: 15px;
+        overflow: hidden;
+        text-align: center;
+        background-color: #fdf6f3;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .shop-2-item:hover {
+        transform: scale(1.05);
+    }
+
+    .shop-2-item img {
+        width: 100%;
+        height: auto;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+    }
+
+    .brands-container {
+        width: 90%;
+        margin: auto;
+        overflow: hidden;
+        position: relative;
+        padding: 20px 0;
+    }
+
+    .brands-wrapper {
+        display: flex;
+        gap: 50px;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+    }
+
+    .brands-wrapper::-webkit-scrollbar {
+        display: none;
+    }
+
+    .brand-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 150px;
+        flex-shrink: 0;
+    }
+
+    .brand-item img {
+        max-width: 100%;
+        max-height: 50px;
+    }
+
+    .dropdown {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        color: white;
+        background-color: black;
+        position: absolute;
+        font-weight: 100;
+        z-index: 99;
+        display: none;
+        left: 0;
+        width: 100vw;
+        top: 100%;
+        width: max-content;
+        font-size: smaller;
+        padding-right: 10%;
+    }
+
+    .has-dropdown {
+        position: relative;
+    }
+
+    .dropdown ul {
+        margin: 0;
+        padding: 0;
+        gap: 5%;
+        white-space: nowrap;
+        list-style: none;
+    }
+
+    .has-dropdown:hover .dropdown {
+        display: block;
+    }
+
+    .dropdown-style {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .dropdown ul li {
+        padding: 25px 15px !important;
+        white-space: nowrap;
+    }
+
+    .has-dropdown:hover {
+        background-color: black;
+    }
+</style>
+
+<body>
+    <div id="header">
+        <div class="header_containers">
+            <img class="header_icon" src="assets/location-pin.png" alt="">
+            <p class="header_txt">Find a Store</p>
+        </div>
+        <div>
+            <img class="heading" src="assets/heading.png" alt="">
+        </div>
+        <div class="header_containers">
+            <p class="header_txt">Account</p>
+            <img class="header_icon" src="assets/user.png" alt="">
+        </div>
+    </div>
+    <div id="navbar">
+        <div class="menu-first">
+            <ul id="menu">
+                <li style="background: red;" class="has-dropdown">Sale</li>
+                <li class="has-dropdown">Women
+                    <div class="dropdown">
+                        <ul>
+                            <li>Clothing</li>
+                            <li>Trending</li>
+                            <li>Dresses</li>
+                            <li>Shoes & Sandels</li>
+                            <li>Brands</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="has-dropdown">Girls<div class="dropdown">
+                        <ul>
+                            <li>Clothing</li>
+                            <li>Dresses</li>
+                            <li>Shoes & Sandels</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="has-dropdown">Mens<div class="dropdown">
+                        <ul>
+                            <li>Clothing</li>
+                            <li>Brands</li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="has-dropdown">Gift Cards<div class="dropdown">
+                        <ul>
+                            <li>Buy a Gift Card</li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="menu-second">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Search">
+                <img src="assets/search_icon.png" alt="Search" class="search-icon">
+            </div>
+            <div>
+                <img src="assets/heart.png" alt="like" class="heart">
+            </div>
+            <div>
+                <img src="assets/shopping.png" alt="shopping" class="heart">
+
+            </div>
+        </div>
+    </div>
+    <div class="running-banner">
+        <p>🔥 50% Off on All Items! Limited Time Only! 🔥</p>
+    </div>
+    <div>
+        <div>
+            <img src="assets/sale.png" alt="sale" style="width: 100%;">
+        </div>
+        <div class="shop">
+            <div class="shop-cat">
+                <p>Shop men's</p>
+            </div>
+            <div class="shop-cat">
+                <p>Shop girls'</p>
+            </div>
+        </div>
+        <div style="margin-block: 2%;">
+            <img src="assets/chloe.png" alt="chloe" style="width: 100%;">
+        </div>
+    </div>
+    <div class="shop-2-container">
+        <div class="shop-2-item">
+            <img src="assets/mens.jpeg" alt="Men's">
+        </div>
+        <div class="shop-2-item">
+            <img src="assets/girls.jpeg" alt="Girls'">
+        </div>
+        <div class="shop-2-item">
+            <img src="assets/curves.jpeg" alt="Curves">
+        </div>
+        <div class="shop-2-item">
+            <img src="assets/maternity.jpeg" alt="Maternity">
+        </div>
+        <div class="shop-2-item">
+            <img src="assets/petite.jpeg" alt="Petite">
+        </div>
+        <div class="shop-2-item">
+            <img src="assets/tall.jpeg" alt="Tall">
+        </div>
+    </div>
+    <div class="brands-container">
+        <h2 style="text-align: center;">
+            Trending Brands...
+        </h2>
+        <div class="brands-wrapper">
+            <div class="brand-item"><img src="assets/rise.jpeg" alt="Rise"></div>
+            <div class="brand-item"><img src="assets/appricot.png" alt="Chloe Lewis"></div>
+            <div class="brand-item"><img src="assets/loungeable.jpeg" alt="Loungeable"></div>
+            <div class="brand-item"><img src="assets/moda.png" alt="Moda Minx"></div>
+            <div class="brand-item"><img src="assets/wgirl.png" alt="Wkndgirl"></div>
+            <div class="brand-item"><img src="assets/gini.jpeg" alt="GINI London"></div>
+            <div class="brand-item"><img src="assets/cl.jpeg" alt="GINI London"></div>
+            <div class="brand-item"><img src="assets/pink.png" alt="GINI London"></div>
+            <div class="brand-item"><img src="assets/sbeach.jpeg" alt="GINI London"></div>
+            <div class="brand-item"><img src="assets/sdip.png" alt="GINI London"></div>
+        </div>
+    </div>
+
+    <div><img src="assets/1.jpeg" alt="example image" style="width: 100%;"></div>
+
+    <div class="footer">
+        <div>
+            <div>
+                <h2 class="footer-heading">SIGN UP and get 25% OFF*</h2>
+            </div>
+            <div style="margin-inline: 22%;">
+                <p style="text-align: center;">Sign up to our e-mails to be the first to hear about the latest trends
+                    new arrivals and exclusive
+                    offers. Available to customers opting in for the first time or returningto opt in; offer excludes
+                    third party branded, promotional and sale items.
+                    <br>
+                    You can unsubscribe at any time.
+                    <a>*T&Cs apply.</a>
+                </p>
+            </div>
+            <div class="footer-signup">
+                <div>
+                    <input type="text" placeholder="Email address" class="footer-input">
+                </div>
+                <div>
+                    <button class="signup_btn">Sign me up</button>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="footer-2nd">
+            <div class="sec-1">
+                <p>Help & Info</p>
+                <ul>
+                    <li>Help center</li>
+                    <li>Delivery Collection</li>
+                    <li>Returns & refunds</li>
+                    <li>Gift cards</li>
+                    <li>Track your order</li>
+                    <li>Size guide</li>
+                    <li>Accessibility</li>
+                    <li>How we use your information</li>
+                </ul>
+            </div>
+            <div class="sec-1">
+                <p>Payments & Discounts</p>
+                <ul>
+                    <li>Black Friday</li>
+                    <li>Payments & Discounts</li>
+                    <li>Promotions & discounts</li>
+                    <li>Gift cards</li>
+                    <li>Student discount</li>
+                    <li>Ways to pay</li>
+                </ul>
+            </div>
+            <div class="sec-1">
+                <p>About New Look</p>
+                <ul>
+                    <li>Find a store</li>
+                    <li>About us</li>
+                    <li>Careers</li>
+                    <li>Sustainability</li>
+                    <li>Modern slavery statement</li>
+                </ul>
+            </div>
+            <div class="sec-2">
+                <h2>Be Social</h2>
+                <p>Join the Conversation</p>
+                <div class="social-icons">
+                    <img src="assets/fb.png" alt="facebook">
+                    <img src="assets/insta.png" alt="insta">
+                    <img src="assets/pinterest.png" alt="pinterest">
+                    <img src="assets/tweet.png" alt="tweet">
+                    <img src="assets/yt.png" alt="youtube">
+                </div>
+            </div>
+        </div>
+        <hr style="margin: 0;">
+        <div class="footer-3">
+            <div class="footer-top">
+                <span>🇬🇧 United Kingdom - £ - English</span>
+            </div>
+
+            <div class="payment-icons">
+                <img src="assets/amex.avif" alt="AMEX">
+                <img src="assets/visa.png" alt="VISA">
+                <img src="assets/mastercard.png" alt="MasterCard">
+                <img src="assets/paypal.png" alt="PayPal">
+                <img src="assets/klarna.png" alt="Klarna">
+            </div>
+
+            <p class="footer-text">
+                The celebrities named or featured on NewLook.com have not endorsed, recommended, or approved the items
+                offered
+                on <a href="#">site</a> unless they are promoting their own brand.
+            </p>
+
+            <hr class="divider">
+
+            <p class="footer-bottom">
+                © 2025 New Look Retailers Limited |
+                <a href="#">Terms & Conditions</a> |
+                <a href="#">Privacy</a> |
+                <a href="#">Security</a> |
+                <a href="#">Cookies</a> |
+                <a href="#">Site Map</a> |
+                Company number: 01618428, Registered office address: New Look House, Mercery Road, Weymouth, Dorset, DT3
+                5HJ
+            </p>
+        </div>
+    </div>
+
+</body>
+
+</html>
