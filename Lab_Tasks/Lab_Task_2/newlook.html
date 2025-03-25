@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</head>
+<style>
+    body {
+        margin: 0px;
+        padding: 0px;
+        font-family: Helvetica, sans-serif;
+    }
+
+    #header {
+        margin-block: 2%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-inline: 10%;
+    }
+
+    .header_icon {
+        padding: 5%;
+        max-height: 20px;
+        max-width: 100%;
+    }
+
+    .header_containers {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header_containers:hover .header_txt {
+        text-decoration: underline;
+    }
+
+    .header_containers:hover .header_icon {
+        background-color: gainsboro;
+        border-radius: 50%;
+    }
+
+
+    .header_containers p {
+        text-align: justify;
+        font-size: small;
+        font-family: Helvetica, sans-serif;
+        margin-top: 2px;
+        margin-bottom: 0;
+        margin-inline: 7px;
+        white-space: nowrap;
+        opacity: 60%;
+    }
+
+    .header_txt {
+        text-align: justify;
+        font-size: small;
+        font-family: Helvetica, sans-serif;
+        margin-top: 3px;
+        margin-bottom: 0;
+        margin-inline: 7px;
+    }
+
+    h1 {
+        margin: 0px;
+    }
+
+    .heading {
+        padding-top: 3%;
+        max-height: 40px;
+    }
+
+    .search-icon {
+        width: 10%;
+        height: 10%;
+        cursor: pointer;
+    }
+
+    .heart {
+        max-width: 40px;
+        padding-left: 15%;
+    }
+
+    .footer-signup {
+        display: flex;
+        justify-content: center;
+        gap: 2%;
+        padding-bottom: 3%;
+    }
+
+    .footer {
+        background-color: #eeeded;
+        font-family: Helvetica, sans-serif;
+        padding-block: 3%;
+        margin-bottom: 5%;
+    }
+
+    .footer-heading {
+        font-weight: 500;
+        display: flex;
+        justify-content: center;
+    }
+
+    .signup_btn {
+        background-color: black;
+        color: white;
+        border-radius: 4px;
+        text-align: center;
+        width: 120px;
+        height: 30px;
+    }
+
+    .footer-input {
+        padding: 3%;
+        width: 300px;
+        border: hsl(0, 0%, 42%);
+    }
+
+    .footer-2nd {
+        display: flex;
+        font-size: smaller;
+    }
+
+    .footer-2nd ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .footer-2nd li {
+        color: #6a6a6a;
+        font-weight: 100;
+        padding-block: 3.5%;
+
+    }
+
+    .sec-1 {
+        padding-inline: 5%;
+        white-space: nowrap;
+        margin-left: 5%;
+        padding-top: 3%;
+    }
+
+    .social-icons {
+        display: flex;
+    }
+
+    .social-icons img {
+        width: 20px;
+        padding: 5%;
+    }
+
+    .sec-2 {
+        padding-top: 3%;
+        padding-inline: 10%;
+    }
+
+    .sec-2 h2 {
+        font-weight: 500;
+        font-size: x-large;
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+
+    .sec-2 p {
+        color: #6a6a6a;
+        font-weight: 100;
+        white-space: nowrap;
+        margin-top: 0;
+        padding-top: 0;
+    }
+
+    .footer-3 {
+        background-color: #f2f2f2;
+        text-align: center;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        color: #666;
+    }
+
+    .footer-top {
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+
+    .payment-icons {
+        margin-bottom: 15px;
+    }
+
+    .payment-icons img {
+        width: 50px;
+        margin: 0 5px;
+    }
+
+    .footer-text {
+        max-width: 800px;
+        margin: 0 auto 15px;
+    }
+
+    .footer-text a {
+        color: #666;
+        text-decoration: underline;
+    }
+
+    .divider {
+        border: none;
+        height: 1px;
+        background-color: #ccc;
+        margin: 15px auto;
+        width: 80%;
+    }
+
+    .footer-bottom {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .footer-bottom a {
+        color: #666;
+        text-decoration: none;
+        margin: 0 5px;
+    }
+
+    .footer-bottom a:hover {
+        text-decoration: underline;
+    }
+
+    .running-banner {
+        background-color: #ff0000;
+        color: white;
+        font-size: 16px;
+        text-align: center;
+        top: 60px;
+        width: 100%;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+    }
+
+    .running-banner p {
+        display: inline-block;
+        white-space: nowrap;
+        animation: banner-scroll 10s linear infinite;
+    }
+
+    @keyframes banner-scroll {
+        0% {
+            transform: translateX(100%);
+        }
+
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+    .shop {
+        display: flex;
+        justify-content: center;
+        background-color: #ff0000;
+        margin: 0;
+        padding: 0;
+    }
+
+    .shop-cat {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+        color: rgb(243, 243, 243);
+        text-align: center;
+        text-decoration: underline;
+    }
+
+    /* .shop-2-container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        padding: 20px;
+    } */
+
+    .shop-2-item {
+        overflow: hidden;
+        transition: transform 0.3s ease-in-out;
+        border-radius: 15px;
+    }
+
+    .shop-2-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 15px;
+    }
+
+    .nav-style-custom {
+        padding-inline: 10%;
+    }
+
+    .nav-cus {
+        margin-block: 0%;
+        padding-block: 0%;
+        background-color: #454444;
+    }
+</style>
+
+<body>
+    <div id="header">
+        <div class="header_containers">
+            <img class="header_icon" src="assets/location-pin.png" alt="">
+            <p class="header_txt">Find a Store</p>
+        </div>
+        <div>
+            <img class="heading" src="assets/heading.png" alt="">
+        </div>
+        <div id="account" class="header_containers">
+            <p class="header_txt">Account</p>
+            <img class="header_icon" src="assets/user.png" alt="">
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-lg shadow-sm nav-cus">
+        <div class="container-fluid nav-style-custom">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item" style="background-color: #ff0000;">
+                        <a class="nav-link text-white" href="#">Sale</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" id="womenDropdown"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Women
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="womenDropdown">
+                            <li><a class="dropdown-item" href="#">Clothing</a></li>
+                            <li><a class="dropdown-item" href="#">Trending</a></li>
+                            <li><a class="dropdown-item" href="#">Dresses</a></li>
+                            <li><a class="dropdown-item" href="#">Shoes & Sandals</a></li>
+                            <li><a class="dropdown-item" href="#">Brands</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown ">
+                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" id="girlsDropdown"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Girls
+                        </a>
+                        <ul class="dropdown-menu text-white" aria-labelledby="girlsDropdown">
+                            <li><a class="dropdown-item" href="#">Clothing</a></li>
+                            <li><a class="dropdown-item" href="#">Dresses</a></li>
+                            <li><a class="dropdown-item" href="#">Shoes & Sandals</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" id="mensDropdown"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Mens
+                        </a>
+                        <ul class="dropdown-menu text-white" aria-labelledby="mensDropdown">
+                            <li><a class="dropdown-item" href="#">Clothing</a></li>
+                            <li><a class="dropdown-item" href="#">Brands</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" id="giftCardsDropdown"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Gift Cards
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="giftCardsDropdown">
+                            <li><a class="dropdown-item" href="#">Buy a Gift Card</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <!-- Search and Icons -->
+                <div class="d-flex align-items-center gap-3">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <span class="input-group-text">
+                            <img src="assets/search_icon.png" alt="Search" width="20">
+                        </span>
+                    </div>
+                    <a href="#"><img src="assets/heart.png" alt="like" width="30"></a>
+                    <a href="#"><img src="assets/shopping.png" alt="shopping" width="30"></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="running-banner">
+        <p>🔥 50% Off on All Items! Limited Time Only! 🔥</p>
+    </div>
+    <div>
+        <div>
+            <img src="assets/sale.png" alt="sale" style="width: 100%;">
+        </div>
+        <div class="shop">
+            <div class="shop-cat">
+                <p>Shop men's</p>
+            </div>
+            <div class="shop-cat">
+                <p>Shop girls'</p>
+            </div>
+        </div>
+        <div style="margin-block: 2%;">
+            <img src="assets/chloe.png" alt="chloe" style="width: 100%;">
+        </div>
+    </div>
+    <div class="container py-4">
+        <div class="row g-3">
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="shop-2-item">
+                    <img src="assets/mens.jpeg" alt="Men's" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="shop-2-item">
+                    <img src="assets/girls.jpeg" alt="Girls'" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="shop-2-item">
+                    <img src="assets/curves.jpeg" alt="Curves" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="shop-2-item">
+                    <img src="assets/maternity.jpeg" alt="Maternity" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="shop-2-item">
+                    <img src="assets/petite.jpeg" alt="Petite" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2">
+                <div class="shop-2-item">
+                    <img src="assets/tall.jpeg" alt="Tall" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="brands-container">
+        <h2 style="text-align: center;">
+            Trending Brands...
+        </h2>
+
+        <div class="container mt-4">
+            <div class="d-flex gap-4 overflow-auto" style="scroll-behavior: smooth; scrollbar-width: none;">
+                <div class="flex-shrink-0 d-flex align-items-center justify-content-center" style="min-width: 150px;">
+                    <img src="assets/rise.jpeg" alt="Rise" class="img-fluid" style="max-height: 50px;">
+                </div>
+                <div class="flex-shrink-0 d-flex align-items-center justify-content-center" style="min-width: 150px;">
+                    <img src="assets/appricot.png" alt="Chloe Lewis" class="img-fluid" style="max-height: 50px;">
+                </div>
+                <div class="flex-shrink-0 d-flex align-items-center justify-content-center" style="min-width: 150px;">
+                    <img src="assets/loungeable.jpeg" alt="Loungeable" class="img-fluid" style="max-height: 50px;">
+                </div>
+                <div class="flex-shrink-0 d-flex align-items-center justify-content-center" style="min-width: 150px;">
+                    <img src="assets/moda.png" alt="Moda Minx" class="img-fluid" style="max-height: 50px;">
+                </div>
+                <div class="flex-shrink-0 d-flex align-items-center justify-content-center" style="min-width: 150px;">
+                    <img src="assets/wgirl.png" alt="Wkndgirl" class="img-fluid" style="max-height: 50px;">
+                </div>
+                <div class="flex-shrink-0 d-flex align-items-center justify-content-center" style="min-width: 150px;">
+                    <img src="assets/gini.jpeg" alt="GINI London" class="img-fluid" style="max-height: 50px;">
+                </div>
+                <div class="flex-shrink-0 d-flex align-items-center justify-content-center" style="min-width: 150px;">
+                    <img src="assets/cl.jpeg" alt="GINI London" class="img-fluid" style="max-height: 50px;">
+                </div>
+                <div class="flex-shrink-0 d-flex align-items-center justify-content-center" style="min-width: 150px;">
+                    <img src="assets/pink.png" alt="GINI London" class="img-fluid" style="max-height: 50px;">
+                </div>
+                <div class="flex-shrink-0 d-flex align-items-center justify-content-center" style="min-width: 150px;">
+                    <img src="assets/sbeach.jpeg" alt="GINI London" class="img-fluid" style="max-height: 50px;">
+                </div>
+                <div class="flex-shrink-0 d-flex align-items-center justify-content-center" style="min-width: 150px;">
+                    <img src="assets/sdip.png" alt="GINI London" class="img-fluid" style="max-height: 50px;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div><img src="assets/1.jpeg" alt="example image" style="width: 100%;"></div>
+
+    <div class="footer">
+        <div>
+            <div>
+                <h2 class="footer-heading">SIGN UP and get 25% OFF*</h2>
+            </div>
+            <div style="margin-inline: 22%;">
+                <p style="text-align: center;">Sign up to our e-mails to be the first to hear about the latest trends
+                    new arrivals and exclusive
+                    offers. Available to customers opting in for the first time or returningto opt in; offer excludes
+                    third party branded, promotional and sale items.
+                    <br>
+                    You can unsubscribe at any time.
+                    <a>*T&Cs apply.</a>
+                </p>
+            </div>
+            <div class="footer-signup">
+                <div>
+                    <input type="text" placeholder="Email address" class="footer-input">
+                </div>
+                <div>
+                    <button class="signup_btn">Sign me up</button>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="footer-2nd">
+            <div class="sec-1">
+                <p>Help & Info</p>
+                <ul>
+                    <li>Help center</li>
+                    <li>Delivery Collection</li>
+                    <li>Returns & refunds</li>
+                    <li>Gift cards</li>
+                    <li>Track your order</li>
+                    <li>Size guide</li>
+                    <li>Accessibility</li>
+                    <li>How we use your information</li>
+                </ul>
+            </div>
+            <div class="sec-1">
+                <p>Payments & Discounts</p>
+                <ul>
+                    <li>Black Friday</li>
+                    <li>Payments & Discounts</li>
+                    <li>Promotions & discounts</li>
+                    <li>Gift cards</li>
+                    <li>Student discount</li>
+                    <li>Ways to pay</li>
+                </ul>
+            </div>
+            <div class="sec-1">
+                <p>About New Look</p>
+                <ul>
+                    <li>Find a store</li>
+                    <li>About us</li>
+                    <li>Careers</li>
+                    <li>Sustainability</li>
+                    <li>Modern slavery statement</li>
+                </ul>
+            </div>
+            <div class="sec-2">
+                <h2>Be Social</h2>
+                <p>Join the Conversation</p>
+                <div class="social-icons">
+                    <img src="assets/fb.png" alt="facebook">
+                    <img src="assets/insta.png" alt="insta">
+                    <img src="assets/pinterest.png" alt="pinterest">
+                    <img src="assets/tweet.png" alt="tweet">
+                    <img src="assets/yt.png" alt="youtube">
+                </div>
+            </div>
+        </div>
+        <hr style="margin: 0;">
+        <div class="footer-3">
+            <div class="footer-top">
+                <span>🇬🇧 United Kingdom - £ - English</span>
+            </div>
+
+            <div class="payment-icons">
+                <img src="assets/amex.avif" alt="AMEX">
+                <img src="assets/visa.png" alt="VISA">
+                <img src="assets/mastercard.png" alt="MasterCard">
+                <img src="assets/paypal.png" alt="PayPal">
+                <img src="assets/klarna.png" alt="Klarna">
+            </div>
+
+            <p class="footer-text">
+                The celebrities named or featured on NewLook.com have not endorsed, recommended, or approved the items
+                offered
+                on <a href="#">site</a> unless they are promoting their own brand.
+            </p>
+
+            <hr class="divider">
+
+            <p class="footer-bottom">
+                © 2025 New Look Retailers Limited |
+                <a href="#">Terms & Conditions</a> |
+                <a href="#">Privacy</a> |
+                <a href="#">Security</a> |
+                <a href="#">Cookies</a> |
+                <a href="#">Site Map</a> |
+                Company number: 01618428, Registered office address: New Look House, Mercery Road, Weymouth, Dorset, DT3
+                5HJ
+            </p>
+        </div>
+    </div>
+    <script defer src="index.js"></script>
+</body>
+
+</html>
