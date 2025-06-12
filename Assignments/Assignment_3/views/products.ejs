@@ -1,0 +1,25 @@
+<main class="container my-5">
+    <h1 class="mb-4">Product List</h1>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+        <% products.forEach(product=> { %>
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="<%= product.image %>" class="card-img-top" alt="<%= product.title %>">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <%= product.title %>
+                        </h5>
+                        <p class="card-text">
+                            <%= product.description %>
+                        </p>
+                        <p class="card-text"><strong>Category:</strong>
+                            <%= product.category %>
+                        </p>
+                        <p class="card-text"><strong>Price:</strong> $<%= product.price %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+    </div>
+</main>
