@@ -1,0 +1,33 @@
+<main class="container my-5">
+    <h1 class="mb-4">My Orders</h1>
+
+    <% if (orders.length===0) { %>
+        <div class="alert alert-info">You have no orders yet.</div>
+        <% } else { %>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+                <% orders.forEach(order=> { %>
+                    <div class="col">
+                        <div class="card h-100 shadow-sm">
+                            <img src="<%= order.productId.image %>" class="card-img-top"
+                                alt="<%= order.productId.title %>">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <%= order.productId.title %>
+                                </h5>
+                                <p class="card-text">
+                                    <%= order.productId.description %>
+                                </p>
+                                <p class="card-text"><strong>Category:</strong>
+                                    <%= order.productId.category %>
+                                </p>
+                                <p class="card-text"><strong>Price:</strong> $<%= order.productId.price %>
+                                </p>
+                                <p class="card-text text-muted"><small>Ordered on: <%= new
+                                            Date(order.createdAt).toLocaleDateString() %></small></p>
+                            </div>
+                        </div>
+                    </div>
+                    <% }) %>
+            </div>
+            <% } %>
+</main>
