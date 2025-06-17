@@ -1,0 +1,62 @@
+<!-- views/cart.ejs -->
+<main class="container my-5">
+    <% if (error && error.length> 0) { %>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <%= error %>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <% } %>
+
+            <% if (success && success.length> 0) { %>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <%= success %>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <% } %>
+                    <h1 class="mb-4">Shopping Cart</h1>
+                    <% if (cart.length===0) { %>
+                        <p>Your cart is empty.</p>
+                        <% } else { %>
+                            <form action="/cart/update" method="POST">
+                                <table class="table table-bordered">
+                                    <thead class="table-dark">
+                                        <tr>
+                                            <th>Product</th>
+                                            <th>Price</th>
+                                            <th>Quantity</th>
+                                            <th>Total</th>
+                                            <th>Remove</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% cart.forEach((item, index)=> { %>
+                                            <tr>
+                                                <td>
+                                                    <%= item.product.title %>
+                                                </td>
+                                                <td>$<%= item.product.price.toFixed(2) %>
+                                                </td>
+                                                <td>
+                                                    <input type="number" name="quantities[]"
+                                                        value="<%= item.quantity %>" min="1" class="form-control">
+                                                </td>
+                                                <td>$<%= (item.quantity * item.product.price).toFixed(2) %>
+                                                </td>
+                                                <td>
+                                                    <input type="checkbox" name="remove[]" value="<%= index %>">
+                                                </td>
+                                            </tr>
+                                            <% }) %>
+                                    </tbody>
+                                </table>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h4>Total: $<%= total %>
+                                    </h4>
+                                    <div>
+                                        <a href="/checkout" class="btn btn-primary me-2">Proceed to Checkout</a>
+                                        <button type="submit" class="btn btn-outline-secondary">Update Cart</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <% } %>
+</main>
