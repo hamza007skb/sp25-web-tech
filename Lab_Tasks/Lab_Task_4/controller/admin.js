@@ -5,6 +5,7 @@ const orders = require("../models/order_model");
 const { requireAdmin } = require("../middleware");
 const multer = require("multer");
 const path = require("path");
+const users = require("../models/user_model");
 
 // file uploading
 const storage = multer.diskStorage({
@@ -42,6 +43,7 @@ router.get("/admin/orders", requireAdmin, async (req, res) => {
       cssFile: true,
       css: "css/newlook.css",
       layout: "admin/layout",
+      userId: "",
     });
   } catch (err) {
     console.error(err);
@@ -54,6 +56,8 @@ router.post("/admin/orders/:id/status", requireAdmin, async (req, res) => {
   const { id } = req.params;
   const { status } = req.body;
 
+  const userId = req.query.userId || "";
+
   try {
     await orders.findByIdAndUpdate(id, { status });
     req.flash("success", "Order status updated.");
@@ -62,7 +66,10 @@ router.post("/admin/orders/:id/status", requireAdmin, async (req, res) => {
     req.flash("error", "Failed to update order.");
   }
 
-  res.redirect("/admin/orders");
+  if (userId) {
+    return res.redirect(`/admin/users/${userId}/orders`);
+  }
+  return res.redirect("/admin/orders");
 });
 // GET: Show Add Product Form
 router.get("/admin/add", requireAdmin, (req, res) => {
@@ -139,4 +146,22 @@ router.post("/admin/:id/delete", requireAdmin, async (req, res) => {
   return res.redirect("/admin");
 });
 
+router.get("/admin/get-users", requireAdmin, async (req, res) => {
+  const userList = await users.find({ role: "user" });
+  return res.render("admin/admin_users", {
+    users: userList,
+    layout: "admin/layout",
+  });
+});
+
+router.get("/admin/users/:id/orders", requireAdmin, async (req, res) => {
+  const { id } = req.params;
+  const ordersList = await orders.find({ userId: id });
+
+  return res.render("admin/admin_orders", {
+    orders: ordersList,
+    layout: "admin/layout",
+    userId: id,
+  });
+});
 module.exports = router;
