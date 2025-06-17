@@ -22,12 +22,12 @@
                                     <%= user.createdAt %>
                                 </td>
                                 <td>
-                                    <button>
-                                        <form action="/admin/users/<%= user._id %>/orders" method="GET"
-                                            class="d-inline">
-                                            <button type="submit" class="btn btn-danger btn-sm">View Orders</button>
-                                        </form>
-                                    </button>
+                                    <form action="/admin/users/<%= user._id %>/orders" method="GET" class="d-inline">
+                                        <button type="submit" class="btn btn-outline-primary btn-sm">
+                                            <i class="bi bi-eye"></i> View Orders
+                                        </button>
+                                    </form>
+
                                 </td>
                             </tr>
                             <% }); %>
