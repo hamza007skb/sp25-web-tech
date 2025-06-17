@@ -1,0 +1,62 @@
+<main class="container my-5">
+    <% if (error && error.length> 0) { %>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <%= error %>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <% } %>
+
+            <% if (success && success.length> 0) { %>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <%= success %>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <% } %>
+                    <% if (user && user.role==='user' ) { %>
+                        <h1 class="mb-4">My Orders</h1>
+                        <% } else { %>
+                            <h1 class="mb-4">Total Orders</h1>
+                            <% } %>
+
+                                <p class="lead">Here
+
+                                    <% if (orders.length===0) { %>
+                                        <div class="alert alert-info">You have no orders yet.</div>
+                                        <% } else { %>
+                                            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+                                                <% orders.forEach(order=> { %>
+                                                    <% order.products.forEach(item=> { %>
+                                                        <div class="col">
+                                                            <div class="card h-100 shadow-sm">
+                                                                <img src="<%= item.product.image %>"
+                                                                    class="card-img-top"
+                                                                    alt="<%= item.product.title %>">
+                                                                <div class="card-body">
+                                                                    <h5 class="card-title">
+                                                                        <%= item.product.title %>
+                                                                    </h5>
+                                                                    <p class="card-text">
+                                                                        <%= item.product.description %>
+                                                                    </p>
+                                                                    <p class="card-text"><strong>Category:</strong>
+                                                                        <%= item.product.category %>
+                                                                    </p>
+                                                                    <p class="card-text"><strong>Price:</strong> $<%=
+                                                                            item.product.price.toFixed(2) %>
+                                                                    </p>
+                                                                    <p class="card-text"><strong>Quantity:</strong>
+                                                                        <%= item.quantity %>
+                                                                    </p>
+                                                                    <p class="card-text text-muted">
+                                                                        <small>Ordered on: <%= new
+                                                                                Date(order.createdAt).toLocaleDateString()
+                                                                                %></small>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <% }) %>
+                                                            <% }) %>
+                                            </div>
+                                            <% } %>
+</main>

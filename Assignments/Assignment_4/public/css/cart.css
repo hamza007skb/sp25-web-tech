@@ -1,0 +1,7 @@
+table td, table th {
+  vertical-align: middle;
+}
+
+input[type="number"] {
+  max-width: 80px;
+}
