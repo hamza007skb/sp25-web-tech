@@ -1,0 +1,58 @@
+<!-- views/checkout.ejs -->
+<main class="container my-5">
+    <% if (error && error.length> 0) { %>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <%= error %>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <% } %>
+
+            <% if (success && success.length> 0) { %>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <%= success %>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <% } %>
+                    <h1 class="mb-4">Checkout</h1>
+                    <form action="/checkout" method="POST">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="name" class="form-label">Full Name</label>
+                                <input id="name" type="text" class="form-control" name="name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input id="contact" type="tel" class="form-control" name="phone" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="address" class="form-label">Address</label>
+                            <textarea id="addr" class="form-control" name="address" rows="3" required></textarea>
+                        </div>
+
+                        <h4 class="mb-3">Order Summary</h4>
+                        <ul class="list-group mb-3">
+                            <% cart.forEach(item=> { %>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <strong>
+                                            <%= item.product.title %>
+                                        </strong> <br>
+                                        Quantity: <%= item.quantity %>
+                                    </div>
+                                    <span>$<%= (item.quantity * item.product.price).toFixed(2) %></span>
+                                </li>
+                                <% }) %>
+                                    <li class="list-group-item d-flex justify-content-between">
+                                        <strong>Total</strong>
+                                        <strong>$<%= total %></strong>
+                                    </li>
+                        </ul>
+
+                        <button type="button" class="btn btn-success w-100" id="checkoutBtn" data-total="<%= total %>">
+                            Pay Later with Cash
+                        </button>
+
+                    </form>
+</main>
+<script src="/js/checkout.js"></script>

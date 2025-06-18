@@ -1,0 +1,35 @@
+<main class="container my-5">
+    <% if (error && error.length> 0) { %>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <%= error %>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <% } %>
+
+            <% if (success && success.length> 0) { %>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <%= success %>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <% } %>
+
+                    <h1 class="mb-4">Your Complaints</h1>
+
+                    <% if (complaints.length===0) { %>
+                        <div class="alert alert-info">You haven't submitted any complaints yet.</div>
+                        <% } else { %>
+                            <div class="list-group">
+                                <% complaints.forEach(complaint=> { %>
+                                    <div class="list-group-item list-group-item-action mb-3 shadow-sm rounded">
+                                        <h5 class="mb-2">Order ID: <%= complaint.orderId._id %>
+                                        </h5>
+                                        <p><strong>Message:</strong>
+                                            <%= complaint.message %>
+                                        </p>
+                                        <small class="text-muted">Submitted on: <%= new
+                                                Date(complaint.createdAt).toLocaleString() %></small>
+                                    </div>
+                                    <% }) %>
+                            </div>
+                            <% } %>
+</main>

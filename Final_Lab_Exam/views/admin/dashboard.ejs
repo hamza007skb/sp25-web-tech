@@ -1,0 +1,40 @@
+<!-- dashboard -->
+<div class="container my-5">
+    <h1 class="mb-4">Admin Dashboard</h1>
+    <a href="/admin/add" class="btn btn-success mb-4">Add New Product</a>
+
+    <table class="table table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Image</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% products.forEach(product=> { %>
+                <tr>
+                    <td>
+                        <%= product.title %>
+                    </td>
+                    <td>$<%= product.price.toFixed(2) %>
+                    </td>
+                    <td>
+                        <%= product.category %>
+                    </td>
+                    <td><img src="<%= product.image %>" alt="image" width="80"></td>
+                    <td>
+                        <a href="/admin/<%= product._id %>/edit" class="btn btn-warning btn-sm">Edit</a>
+
+                        <form action="/admin/<%= product._id %>/delete" method="POST" class="d-inline">
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+
+                    </td>
+                </tr>
+                <% }) %>
+        </tbody>
+    </table>
+</div>

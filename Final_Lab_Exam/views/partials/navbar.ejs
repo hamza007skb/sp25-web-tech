@@ -1,0 +1,52 @@
+<div id="navbar">
+    <div class="menu-first">
+        <ul id="menu">
+            <li style="background: red;" class="has-dropdown">Sale</li>
+            <li class="has-dropdown" onclick="showWomen()">Women
+
+            </li>
+            <li class="has-dropdown" onclick="showGirl()">Girls
+
+            </li>
+            <li class="has-dropdown" onclick="showMen()">Mens
+
+            </li>
+            <li class="has-dropdown">Gift Cards
+
+            </li>
+            <!-- <li id="tasks" class="has-dropdown" onclick="displayMenu()">
+                Tasks
+            </li> -->
+        </ul>
+    </div>
+
+    <div class="menu-second">
+        <form id="categorySearchForm" class="d-flex">
+            <input type="text" id="categorySearchInput" placeholder="Search by category..." class="form-control me-2"
+                style="background-color: black; color: white; border: none;" />
+            <button type="submit" class="btn btn-outline-light">Search</button>
+        </form>
+
+        <script>
+            document.getElementById("categorySearchForm").addEventListener("submit", function (e) {
+                e.preventDefault(); // prevent normal form submission
+                const category = document.getElementById("categorySearchInput").value.trim();
+                if (category) {
+                    window.location.href = `/products?category=${encodeURIComponent(category)}`;
+                }
+            });
+        </script>
+
+        <div onclick="showCart()">
+            <img src="/newlook/assets/shopping.png" alt="shopping" class="heart">
+        </div>
+        <div onclick="showOrders()">
+            <img src="/newlook/assets/clipboard.png" alt="shopping" class="heart">
+        </div>
+        <div onclick="showComplaints()">
+            <img src="/newlook/assets/complaint.png" alt="shopping" class="heart">
+        </div>
+
+    </div>
+</div>
+<script src="js/newlook.js"></script>
